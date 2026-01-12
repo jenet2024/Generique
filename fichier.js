@@ -150,6 +150,27 @@
         }
     }
 
+// --- Activer la bonne section au chargement de la page ---
+window.addEventListener("load", () => {
+    const hash = window.location.hash || "#home"; // si pas de hash → home
+    const targetId = hash.replace("#", "");
+
+    // Retirer toutes les sections actives
+    pages.forEach(p => p.classList.remove("active"));
+    navLinks.forEach(l => l.classList.remove("active"));
+
+    // Activer la bonne section
+    const targetPage = document.getElementById(targetId);
+    if (targetPage) {
+        targetPage.classList.add("active");
+    }
+
+    // Activer le lien correspondant
+    const targetLink = document.querySelector(`a[href="${hash}"]`);
+    if (targetLink) {
+        targetLink.classList.add("active");
+    }
+});
 
 
             
