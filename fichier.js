@@ -166,3 +166,23 @@ window.addEventListener("load", () => {
     if (targetLink) targetLink.classList.add("active");
 });
 
+
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        const triggerHeight = window.innerWidth < 600 ? 500 : 300;
+
+        if (window.scrollY > triggerHeight) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+

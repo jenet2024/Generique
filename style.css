@@ -1743,3 +1743,52 @@
 .cordones{
     color:white;
 }
+
+/* Bouton retour en haut */
+#back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: none; /* caché par défaut */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    z-index: 999;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+}
+
+#back-to-top:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 18px 40px rgba(99,102,241,0.7);
+    opacity: 1;
+}
+
+/* Version mobile */
+/* Version mobile : flèche parfaitement positionnée */
+@media (max-width: 600px) {
+    #back-to-top {
+        position: fixed !important;
+        right: 15px !important;
+        bottom: 15px !important;
+        width: 42px;
+        height: 42px;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
