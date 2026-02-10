@@ -1,0 +1,467 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio – Jenet Tsopkeng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b021f;
+      --bg-alt: #140632;
+      --accent: #35e0c2;
+      --text: #ffffff;
+      --muted: #c9c9d9;
+      --card: #1b0f3d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #3b1b7a, #050010);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    header {
+      padding: 2rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 4rem 8% 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #050010;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      padding: 0.7rem 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .hero-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #1b0f3d, #2a1458);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    section {
+      padding: 2.5rem 8%;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    .list li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .list li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2rem 8%;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 2.5rem;
+      }
+      header {
+        padding: 1.5rem 6%;
+      }
+      section {
+        padding: 2rem 6%;
+      }
+      footer {
+        padding: 1.5rem 6%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">JENET TSOPKENG</div>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#hobbies">Loisirs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">Administratrice DevOps & passionnée de cybersécurité</h1>
+        <p class="hero-subtitle">Je transforme les défis techniques en solutions sécurisées et fiables.</p>
+        <p class="hero-text">
+          Je débute par la création de sites web et je construis mon parcours autour de l’infrastructure,
+          de l’automatisation et de la sécurisation des systèmes Linux et Windows. Je progresse chaque jour
+          à travers des projets concrets et une formation continue en cybersécurité.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+            Découvrir mes projets
+          </button>
+          <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Me contacter
+          </button>
+        </div>
+        <p class="hero-tagline">
+          HTML • CSS • JavaScript • React • Bases Angular • Cybersécurité • DevOps
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <h3>En quelques mots</h3>
+        <p>
+          Toujours attirée par la cyber, je me forme, j’expérimente et je construis
+          mon profil autour de la sécurité, du développement et du travail en équipe.
+        </p>
+        <div>
+          <span class="pill">Cybersécurité</span>
+          <span class="pill">DevOps</span>
+          <span class="pill">Web</span>
+        </div>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--muted);">
+          Actuellement en formation continue sur LinkedIn et TryHackMe, avec plusieurs
+          certifications de sensibilisation à la cybersécurité et des projets personnels en cours.
+        </p>
+      </aside>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="about">
+      <h2 class="section-title">À propos de moi</h2>
+      <p class="section-subtitle">
+        Une curiosité constante, une vraie passion pour la cyber et l’envie de progresser chaque jour.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Mon parcours</h3>
+          <p>
+            J’ai toujours été passionnée par la cybersécurité. Pour construire une base solide,
+            j’ai commencé par la création de sites web et l’apprentissage des technologies front-end.
+          </p>
+          <p>
+            En parallèle, je développe mes compétences en DevOps et en sécurité des systèmes,
+            avec une attention particulière portée à la fiabilité et à la protection des environnements Linux et Windows.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Ma façon de travailler</h3>
+          <ul class="list">
+            <li>Apprendre en faisant : projets personnels, tests, expérimentations</li>
+            <li>Travailler en équipe et communiquer clairement</li>
+            <li>Rester à jour sur les enjeux de la cybersécurité</li>
+            <li>Transformer les problèmes en opportunités d’amélioration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="skills">
+      <h2 class="section-title">Compétences</h2>
+      <p class="section-subtitle">
+        Un profil en construction, mais déjà orienté vers la sécurité, le web et l’automatisation.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Développement & Web</h3>
+          <p>Je conçois des interfaces simples, modernes et efficaces.</p>
+          <div class="chips">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Bases Angular</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Cybersécurité</h3>
+          <p>Je me forme en continu et pratique sur des plateformes dédiées.</p>
+          <ul class="list">
+            <li>Formations LinkedIn sur la cybersécurité</li>
+            <li>Pratique régulière sur TryHackMe</li>
+            <li>Certifications de sensibilisation à la cyber</li>
+            <li>Veille sur les menaces et enjeux actuels</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>DevOps & Systèmes</h3>
+          <p>Une approche orientée fiabilité, automatisation et sécurité.</p>
+          <ul class="list">
+            <li>Systèmes Linux & Windows</li>
+            <li>Automatisation et optimisation des tâches</li>
+            <li>Culture DevOps et amélioration continue</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Soft skills</h3>
+          <ul class="list">
+            <li>Travail en équipe</li>
+            <li>Autonomie et curiosité</li>
+            <li>Persévérance et rigueur</li>
+            <li>Communication claire</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projects">
+      <h2 class="section-title">Projets personnels</h2>
+      <p class="section-subtitle">
+        Je travaille constamment sur des projets pour apprendre, tester et progresser.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Projets web</h3>
+          <p>
+            Création de sites web avec HTML, CSS, JavaScript et React.  
+            Expérimentation d’interfaces, de composants réutilisables et de bonnes pratiques front-end.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Projets cyber</h3>
+          <p>
+            Parcours de labs sur TryHackMe, exercices de sensibilisation, mise en pratique
+            des notions de sécurité et d’analyse des risques.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOISIRS -->
+    <section id="hobbies">
+      <h2 class="section-title">Ce que j’aime faire</h2>
+      <p class="section-subtitle">
+        L’équilibre entre technique, expression et bien-être.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Activités</h3>
+          <ul class="list">
+            <li>Natation</li>
+            <li>Course à pied</li>
+            <li>Broadcast en anglais</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Curiosité & veille</h3>
+          <ul class="list">
+            <li>Participation ou suivi de conférences</li>
+            <li>Actualisation sur les enjeux de la cybersécurité</li>
+            <li>Lecture et contenus sur la tech et la cyber</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Me contacter</h2>
+      <p class="section-subtitle">
+        Une idée, un projet, une opportunité ? Parlons-en.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Disponibilité</h3>
+          <p>
+            Ouverte aux projets, stages, alternances et collaborations dans les domaines
+            du DevOps, du web et de la cybersécurité.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Coordonnées</h3>
+          <p>
+            Vous pouvez m’écrire à :  
+            <strong>votre.email@exemple.com</strong><br />
+            ou me retrouver sur LinkedIn / GitHub (liens à ajouter).
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Jenet Tsopkeng – Portfolio</span>
+    <span>Construite avec passion pour la cyber, le DevOps et le web.</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+```

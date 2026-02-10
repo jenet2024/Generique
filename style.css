@@ -16,12 +16,7 @@
             --text: #f1f5f9;
             background: linear-gradient(135deg, #1e2441 0%, #764ba2 25%, #3e1f41 50%, #254d71 75%, #00f2fe 100%);
 
-                    /* :root {
-            --bg: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-            --text: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.3);
-            --nav-bg: rgba(0, 0, 0, 0.4);
-        } */
+           
         }
 
         .dark-mode {
@@ -34,13 +29,7 @@
         
 
         body {
-            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh; */
+           
 
             
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
